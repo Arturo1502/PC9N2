@@ -40,10 +40,6 @@ class UserController
     
             $userData = $user->getUser($username);
     
-            echo "Input Username: $username<br>";
-            echo "Input Password: $password<br>";
-            echo "Stored Password Hash: {$userData['password']}<br>";
-    
             if ($userData && password_verify($password, $userData['password'])) {
                 session_start();
                 $_SESSION['user'] = $userData;
@@ -56,16 +52,10 @@ class UserController
     }
 
 }   
-
-
-
-
-
     function logout()
     {
         session_start();
-        session_unset(); // Limpiar todas las variables de sesión
-        session_destroy(); // Destruir la sesión
+        session_destroy();
         header('Location: /views/viewLogin.php');
         exit;
     }
