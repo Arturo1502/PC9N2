@@ -1,7 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION['users'])) {
-    $users=$_SESSION['users'];
+if (isset($_SESSION['user'])) {
+    $users=$_SESSION['user'];
+    
 }
 ?>
 
@@ -27,12 +28,9 @@ if (isset($_SESSION['users'])) {
 
         <div class="input">
             <!-- imprimir el correo y el email desde variables de sesion -->
-            <?php foreach ($users as $user):?>
-            
-                <p><?="Username: " . $user['user'];?> </p> 
-                <p><?="Email: " . $user['email'];?> </p> 
+                <p><?="Username: " . $users['user'];?> </p> 
+                <p><?="Email: " . $users['email'];?> </p> 
                         
-            <?php endforeach?>
         </div>
         <a href="/index.php?action=logout&controller=UserController">Logout</a>
 

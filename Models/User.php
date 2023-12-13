@@ -28,7 +28,8 @@ class User
 
     function create($username, $email, $password)
     {
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
 
         $sql  = 'INSERT INTO `users`(`user`, `email`, `password`) VALUES (?,?,?)';
 
@@ -40,6 +41,20 @@ class User
         }
     }
 
+    public function getUser($username)
+    {
+        $sql = "SELECT * FROM `users` WHERE user = ?";
+        
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$username]);
+            $user = $stmt->fetch(\PDO::FETCH_ASSOC);
+            return $user;
+        } catch (\PDOException $e) {
+            echo "Error executing SQL: " . $e->getMessage();
+            return null;
+        }
+    }
     
     
 }

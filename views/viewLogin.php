@@ -20,6 +20,7 @@
         <div class="formu">
             <!-- falta mandar el form para que me verifique el login -->
             <form class="formulario" action="/index.php?action=login&controller=UserController" method="post">
+
                 <div class="input">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>

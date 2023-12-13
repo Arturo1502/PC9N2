@@ -17,7 +17,7 @@ class UserController
 
         $_SESSION['users'] = $users;
 
-        header('Location: /views/viewDashboard.php');
+        header('Location: /views/viewLogin.php');
         exit;
     }
 
@@ -30,12 +30,34 @@ class UserController
         header('Location: /views/viewLogin.php');
         exit;
     }
-
     function login()
     {
-        
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = $_POST['username'];
+            $password = $_POST['pass'];
+    
+            $user = new User();
+    
+            $userData = $user->getUser($username);
+    
+            echo "Input Username: $username<br>";
+            echo "Input Password: $password<br>";
+            echo "Stored Password Hash: {$userData['password']}<br>";
+    
+            if ($userData && password_verify($password, $userData['password'])) {
+                session_start();
+                $_SESSION['user'] = $userData;
+                header('Location: /views/viewDashboard.php');
+            } else {
+                echo "Incorrect username or password";
+            }
+        }
     }
     
+    
+
+
+
 
 
     function logout()
