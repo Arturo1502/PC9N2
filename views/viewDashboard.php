@@ -32,7 +32,7 @@ if (isset($_SESSION['user'])) {
                 <p><?="Email: " . $users['email'];?> </p> 
                         
         </div>
-        <a href="/index.php?action=logout&controller=UserController">Logout</a>
+        <a class="logout" href="/index.php?action=logout&controller=UserController">Logout</a>
 
     </div>
 </body>
