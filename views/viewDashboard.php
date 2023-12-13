@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
         </div>
 
         <div class="input">
-            <!-- imprimir el correo y el email desde variables de sesion -->
+            
                 <p><?="Username: " . $users['user'];?> </p> 
                 <p><?="Email: " . $users['email'];?> </p> 
                         

@@ -49,12 +49,13 @@ class UserController
                 $_SESSION['user'] = $userData;
                 header('Location: /views/viewDashboard.php');
             } else {
-                echo "Incorrect username or password";
-            }
+                
+                header('Location: /views/viewLogin.php?login_error=true');
+                exit;
         }
     }
-    
-    
+
+}   
 
 
 
