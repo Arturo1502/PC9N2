@@ -53,3 +53,8 @@ body {
     color: #E9FFFE;
     border-radius: 6px;
 }
+
+.alert{
+    color: #d75254;
+    font-size: 0.9rem;
+}
