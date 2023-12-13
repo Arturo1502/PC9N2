@@ -18,7 +18,9 @@
             <h1>Register</h1>
         </div>
         <div class="formu">
-            <form class="formulario" action="" method="post">
+
+            <form class="formulario" action="/index.php?action=store&controller=UserController" method="post">
+
                 <div class="input">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>
@@ -29,15 +31,15 @@
                 </div>
                 <div class="input">
                     <label for="pass">Password:</label>
-                    <input type="text" id="pass" name="pass" required>
+                    <input type="password" id="pass" name="pass" required>
                 </div>
-                
-                <button class="btn" type="submit">Login</button>
+
+                <button class="btn" type="submit">Register</button>
             </form>
         </div>
 
         <div>
-            <p>Already have an account? <a href="">Login here</a> </p>
+            <p>Already have an account? <a href="./viewLogin.php">Login here</a> </p>
         </div>
 
     </div>

@@ -18,21 +18,22 @@
             <h1>Login</h1>
         </div>
         <div class="formu">
-            <form class="formulario" action="" method="post">
+            <!-- falta mandar el form para que me verifique el login -->
+            <form class="formulario" action="/index.php?action=login&controller=UserController" method="post">
                 <div class="input">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>
                 </div>
                 <div class="input">
                     <label for="pass">Password:</label>
-                    <input type="text" id="pass" name="pass" required>
+                    <input type="password" id="pass" name="pass" required>
                 </div>
                 <button class="btn" type="submit">Login</button>
             </form>
         </div>
 
         <div>
-            <p>Don't have an account? <a href="">Register here</a> </p>
+            <p>Don't have an account? <a href="/views/viewRegister.php">Register here</a> </p>
         </div>
 
     </div>

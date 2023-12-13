@@ -1,15 +1,20 @@
 <?php
+
 namespace Models;
+
 use Models\Database;
 
-class User{
+class User
+{
     private $conn;
-    public function __construct(){
-        $database= new Database();
-        $this->conn = $database->getConn(); 
+    public function __construct()
+    {
+        $database = new Database();
+        $this->conn = $database->getConn();
     }
 
-    public function all(){
+    public function all()
+    {
         $sql = "SELECT * FROM users";
         try {
             $stm = $this->conn->prepare($sql);
@@ -21,25 +26,20 @@ class User{
         }
     }
 
-    function  create($username, $email, $password)
+    function create($username, $email, $password)
     {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         $sql  = 'INSERT INTO `users`(`user`, `email`, `password`) VALUES (?,?,?)';
 
         try {
-
             $stm = $this->conn->prepare($sql);
-            $stm->execute([$username, $email, $password]);
+            $stm->execute([$username, $email, $hashedPassword]);
         } catch (\PDOException $e) {
             echo $e->getMessage();
         }
     }
 
+    
+    
 }
-
-
-
-
-
-
-?>

@@ -14,7 +14,7 @@ if (isset($_SESSION['users'])) {
     <title>Dashboard</title>
 
     <!-- css -->
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/styleDash.css">
 
 
 </head>
@@ -29,16 +29,12 @@ if (isset($_SESSION['users'])) {
             <!-- imprimir el correo y el email desde variables de sesion -->
             <?php foreach ($users as $user):?>
             
-                <p><?="Username: " . $user['username'];?> </p> 
-                <p><?="Username: " . $user['email'];?> </p> 
+                <p><?="Username: " . $user['user'];?> </p> 
+                <p><?="Email: " . $user['email'];?> </p> 
                         
             <?php endforeach?>
         </div>
-        <a href="">Logout</a>
-
-
-
-
+        <a href="/index.php?action=logout&controller=UserController">Logout</a>
 
     </div>
 </body>

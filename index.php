@@ -7,15 +7,16 @@ if (isset($_GET['action']) && isset($_GET['controller'])) {
     require_once './Controllers/' . $_GET['controller'] . '.php';
 
     $controllerClassName = "\\Controllers\\" . $_GET['controller'];
-    $userController = new $controllerClassName();
+    $UserController = new $controllerClassName();
 
-    if (isset($_GET['id'])) {
-        $userController->{$_GET['action']}($_GET['id']);
+    if(isset($_GET['id'])) {
+        $UserController->{$_GET['action']}($_GET['id']);
     } else {
-        $userController->{$_GET['action']}();
+        $UserController->{$_GET['action']}();
     }
 } else {
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/Controllers/Controller.php';
-    $userController = new UserController();
-    $userController->index();
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/Controllers/UserController.php';
+    $UserController = new UserController();
+    $UserController->index();
 }
+?>
